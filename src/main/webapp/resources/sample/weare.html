@@ -1,0 +1,111 @@
+<!DOCTYPE html><!-- 현재 문서의 형태를 선언 -->
+<html><!-- html문서는 태그열고  ~ 태그닫고 하는 영역확인 중요-->
+<head><!-- 문서내용과 관계없는 문서정보가 들어있고, 메타정보가 존재-->
+<meta charset="UTF-8"><!-- 문서의 언어 인코딩 설정. 지금은 유니코드. -->
+<!-- 반응형을 작동하기 위해서 사용하는 메타태그 -->
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<title>반응형 홈페이지</title><!-- 문서의 제목을 브라우저 상단 탭창에 표시 -->
+<!-- 외부 css파일 불러오는 태그(아래) -->
+<link rel="stylesheet" href="/resources/sample/css/reset.css" type="text/css">
+<link rel="stylesheet" href="/resources/sample/css/mobile.css" type="text/css">
+<link rel="stylesheet" href="/resources/sample/css/tablet.css" type="text/css">
+<link rel="stylesheet" href="/resources/sample/css/pc.css" type="text/css">
+<!-- 외부 자바 스크립트 불러오는 태그(아래) -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="/resources/sample/js/user.js"></script>
+<!-- span태그 자리를 차지하지 않는 영역. 한뼘이라는 뜻 -->
+<!-- :콜론(속성:값, key:Value), ;세미콜론(문장의 끝) -->
+<style>
+/* PC용 스타일 시작 */
+@media all and (min-width:768px) {
+
+}
+/* PC용 스타일 끝 */
+</style>
+<script>
+/* 자바스크립트 시작 */
+
+/* 자바스크립트 끝 */
+</script>
+</head>
+<body><!-- 문서내용이 들어가는 영역 -->
+<div id="wrap"><!-- 랩핑시킨 영역 -->
+<header class="header">
+<!-- 상단 로고와 햄버거 메뉴영역 시작 -->
+<h1 class="logo">
+<a href="index.html">LOGO</a><!-- a태그는 페이지 이동역할, href 속성값에 URL을 입력해서 이동 -->
+</h1><!-- 헤드라인 글자를 표시 h1~h6 -->
+<div class="menu-toggle-btn">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<!-- html5 시만텍 웹 = 의미가 있는 태그를 사용하게 해서 AI가 인식하게 됩니다. nav태그 -->
+<nav class="gnb"> <!-- gnb = 글로벌 네비게이션: 전체영역메뉴 -->
+<!-- 리스트를 보여주는 태그 = ul(Unordered List *.~, *.~ ), ol(Ordered List 1.~, 2.~ ) -->
+<ul><!-- ul 태그가 있으면 li 태그도 있음 -->
+<li><a href="index.html">HOME</a></li>
+<li><a href="weare.html">WE ARE</a></li>
+<li><a href="work.html">WORK</a></li>
+<li><a href="blog.html">BLOG</a></li>
+<li><a href="contactus.html">CONTACT US</a></li>
+</ul>
+</nav>
+<!-- 상단 로고와 햄버거 메뉴영역 끝 -->
+</header>
+
+<section class="weare-section"><!-- div 영역표시 태그 대신에 사용 -->
+
+<section class="weare-header">
+<h1 class="section-title">WE ARE</h1>
+<p>
+Where is your next destination?<br><!-- break(중지) return(엔터) 줄바꿈 태그 -->
+Share and plan your trip with<br>
+people around the world!
+</p>
+</section>
+<!-- 갤러리 게시판에서 가져오는 데이터 4개 반복영역 -->
+<section class="weare-body float-clear">
+<ul>
+<li>
+<a href="javascript:;"><!-- a링크 태그에 가상링크# 대신에 javascript:; -->
+<img src="/resources/sample/img/weare1.jpg" alt="갤러리 게시물1번 입니다.">
+<h2>Global</h2>
+<p>You can meet countless of people all around the world online!</p>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<img src="/resources/sample/img/weare2.jpg" alt="갤러리 게시물2번 입니다.">
+<h2>Communicative</h2>
+<p>You can share and recommend your best travel experiences with other people.</p>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<img src="/resources/sample/img/weare3.jpg" alt="갤러리 게시물3번 입니다.">
+<h2>Solution</h2>
+<p>You don't have to worry about your travel plan anymore. People will help you with your next travel plan!</p>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<img src="/resources/sample/img/weare4.jpg" alt="갤러리 게시물4번 입니다.">
+<h2>Satisfaction</h2>
+<p>You don't have to wander around any more. Enjoy your trip as you planned!</p>
+</a>
+</li>
+</ul>
+
+</section>
+
+</section>
+<footer class="footer float-clear">
+<!-- 하단 로고 영역 시작 -->
+<p>LOGO</p><!-- 문장영역을 의미하는 Paragraph 입니다. -->
+<!-- 하단 로고 영역 끝 -->
+</footer>
+</div>
+</body>
+</html>

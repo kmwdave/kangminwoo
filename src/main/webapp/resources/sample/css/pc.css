@@ -1,0 +1,96 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+/* 반응형 PC용 스타일 시작 */
+/* 미디어쿼리: 미디어의 가로크기가 1132px 이상이면 아래 스타일 적용 */
+@media all and (min-width:1132px) {
+
+/* 슬라이드 영역 시작*/
+.carousel-item, .carousel-item img {height:600px;}
+/* 슬라이드 영역 끝*/
+
+/* we are 영역 시작 */
+.weare-header {
+margin:0px 3%;
+margin-top:30px;
+text-align:center;/* left 에서 임의로 변경 */
+}
+/* 임의로 추가 (아래) */
+.weare-header .section-title {
+margin-top:40px;
+}
+/* 임의로 추가 (위) */
+.weare-section .section-title {
+float:left;
+width:50%;
+}
+.weare-header p {
+float:right;
+width:50%;
+position:relative;
+padding-left:20px;
+}
+.weare-header p::before {/* p태그 앞에 가상요소로 작대기 하나 만듬. */
+position:absolute;/* weare-header 영역 안쪽에서 절대위치 */
+top:7px;
+left:0px;
+width:2px;/* 작대기 가로 크기 */
+height:130px;/* 40px에서 임의로 수정. 작대기 세로 크기 */ 
+background:#333333;/* 작대기 색상 */
+content:"";
+}
+.weare-body li p {/* 임의로 추가 */
+margin:0 0px !important;/* 임의로 추가 */
+width:auto !important;/* 임의로 추가 */
+}
+/* we are 영역 끝 */
+
+/* 워크 영역 시작 */
+.work-section .section-title {
+text-align:center;
+/*margin-left:3%;*/ /* 임의로 비활성화 */
+}
+.work-section li {width:25%;}/* 100/4 */
+/* 워크 영역 끝 */
+
+/* 블로그 영역 시작 */
+.blog-section {
+margin-left:3%;
+margin-right:3%;
+}
+.blog-section h1 {
+float:left;/* 세로배치를 가로배치로 변경 */
+margin-top:20px;
+}
+.blog-section .container {
+float:right;
+width:80%;
+}
+/* 블로그 영역 끝 */
+
+/* 컨택트 영역 시작*/
+.contactus-section {
+margin-left:0%;/* 5% 인데 임의로 수정 */
+margin-right:5%;
+}
+.contactus-section h1 {
+float:left;
+margin-top:30px;
+}
+.contactus-section .section-title {/* 임의로 추가 */
+width:35%;
+text-align:center;
+}
+.contactus-section .container {
+float:right;
+width:65%; /* 임의로 수정 */
+}
+.contactus-section form input {height:50px;}
+.contactus-section form textarea {min-height:150px;}
+.submit-btn {
+text-align:right;/* div 영역 안쪽의 내용을 오른쪽 정렬.*/
+margin-top:10px;
+}
+/* 컨택트 영역 끝*/
+
+}
+/* 반응형 PC용 스타일 끝 */

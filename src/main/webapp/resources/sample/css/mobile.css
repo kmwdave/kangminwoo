@@ -1,0 +1,291 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+/* 모바일용 스타일 지정 시작 */
+body {/* reset 또는 부트스트랩에서 초기화 시킨것을 재 정의할 떄. */
+font-size:14px;
+background:#ffffff;/* #3f51b5 였음 내가 임의로 변경한 것 */
+line-height:1.4 !important;/* 상속이라는 뜻. 바로전에 적용한 값을 초기화 시키는 역할. initial 시키는 역할. */
+font-family:'Malgun Gothic', dotum, sans-serif !important;
+}/* 부트스트랩css영향을 받은것을 무효화 시키고 사용자css로 적용 */
+/* 부트스트랩css영향을 받는 부분 무효화 (아래)*/
+ul {margin-bottom:inherit !important;}/* !important = css위치와 상관없이 무조건 강제로 적용시키는것 */
+/* 헤더영역 시작 */
+.header {
+height:80px;
+position:relative;/* 상대적인 위치. 다른예는 absolute 절대적인 위치 = fixed 붙박이 */
+padding:0px 1%;/* 안쪽여백. 바깥쪽여백은 margin. 18px은 상하여백, 5%는 좌우여백 */
+/* padding:18px 5% 18px 5%; (시계방향으로 진행되고 시작은 위쪽부터 시작.) 의 약자가 위로 표시됨.
+만약 padding:18px 5% 18px; 이 3가지는 모두 동일. 18px(상 여백), 5%(좌우 여백), 18px(하 여백)
+*/
+}
+.header .logo {
+float:left;/* float=떠다니는 영역. 세로배치를 가로배치로 변경처리에 사용*/
+}
+.header .logo a {
+font-size:26px;/* 글자 크기 */
+color:#3f51b5;/* 글자 색상 */
+font-weight:normal;/* 글자 두께 */
+text-indent:-9999%;/* 들여쓰기 */
+display:block;
+height:80px;
+background:url(/resources/sample/img/logo.png) no-repeat;/* 백그라운드 이미지는 기본이 반복(repeat) */
+background-size:100%;
+background-position:0px center;/* 배경위치는 center(가로) center(세로) */
+}
+.header .menu-toggle-btn { /* toggle = 똑딱이 */
+float:right;
+width:30px;
+margin-top:25px;
+cursor:pointer;/* 마우스 커서 모양을 손 모양으로 변경 */
+}
+.menu-toggle-btn span {
+display:block;
+height:3px;/* 1px 였음 내가 임의로 변경한 것 */
+width:100%;/* 여기서100%는 .menu-toggle-btn영역의 가로20px 까지가100% */
+background:#333333;/* #3f51b5 였음 내가 임의로 변경한 것 */
+margin-bottom:10px;
+}
+.header .gnb {
+display:none;/*페이지로딩시 숨겨야 하기 때문에 none으로 처리 */
+position:absolute;/* gnb영역의 위치를 절대위치로 지정  위치정보가 필요 */
+top:88px;
+right:0px;/* left:0px; 였음 내가 임의로 변경한 것 */
+width:120px;/* 100% 였음 내가 임의로 변경한 것 */
+background:#ffffff;
+z-index:21;/* 화면에서 컨텐츠가 곂치는경우 인덱스를 이용해  */
+}
+.header .gnb li {
+border:2px solid #333333;
+border-bottom:0px;
+}
+/* 가상선택자 : 사용 */
+.header .gnb li:last-child {
+border-bottom:2px solid #333333;
+}
+.header .gnb li a {
+display:block;/* inline-block 이었음 *//* 1줄 1글자라도 전체 자리를 차지하는 영역, inline-block = 자리를 차지하긴 하지만 본인 크기만 차지.*/
+padding:5px;/* 원래 14px 0 14px 5% 였음. 임의로 변경 */
+font-size:16px;
+font-weight:bold;
+/*font-family:Comic Sans MS;*/ /* 비활성화 */
+color:#333333;/* #3f51b5 였음. 내가 임의로 변경 */
+margin-left:0px;
+text-decoration: none;/* 임의로 추가 */
+text-align:center;
+letter-spacing:0px;/* 임의로 추가 */
+}
+/* 헤더영역 끝 */
+
+/* 본문섹션 슬라이드 영역 시작 */
+#wrap .slider img {width:100%;}/* Cascade Style Sheet 특징 계단형 스타일 */
+.carousel-item, .carousel-item img {height:300px;}
+/* 본문섹션 슬라이드 영역 끝 */
+
+/* 푸터영역 시작 */
+.footer {
+padding-top:30px;/* margin-top 이었는데 작동을 하지 않아서 패딩으로 바꿈. */
+background:#d1ede1;
+}
+.footer p {
+margin:21px 0px;
+color:#333333;/* #3f51b5 였음 내가 임의로 변경한 것 */
+font-size: 30px;/* 내가 임의로 추가한 것 */
+/*font-family:Comic Sans MS;*/ /* 비활성화 */
+font-weight:bolder;/* 내가 임의로 추가한 것 */
+text-align:center;/* 문장내용을 가운데로 정렬 */
+}
+/* 푸터영역 끝 */
+
+/* weare 페이지 영역 시작 */
+.weare-header {
+margin-top:30px;
+text-align:center;
+}
+.section-title {
+margin-bottom:30px;
+font-size:42px;
+color:#333333;/* #3f51b5 였음 내가 임의로 변경한 것 */
+font-weight:normal;
+/*font-family:Comic Sans MS;*/ /* 비활성화 */
+letter-spacing:5px;/* 글자사이 간격 */
+}
+.weare-header p {
+color:#333333;/* 원래 #616161 였음. 임의로 수정 */
+line-height:1.9;/* 줄 간격 숫자의미는 글자크기의 배수 */
+font-size:25px;
+/*font-family:Comic Sans MS;*/ /* 비활성화 */
+}
+.weare-body {
+margin-top:68px;
+}
+.weare-body li {
+text-align:center;
+margin-top:50px;
+}
+.weare-body li img {
+height:220px;/* 이미지는 가로든 세로든 1쪽 크기를 지정하면, 비율을 유지하면서 크기가 조정됩니다. */
+text-decoration:none;/* 임의 추가 */
+}
+.weare-body li h2 {
+margin:20px 0px;
+font-size:30px;
+font-weight:normal;
+color:#333333;/* #3f51b5였음. 임의로 수정 */
+text-decoration:none;/* 임의 추가 */
+}
+.weare-body li p {
+display:inline-block;
+width:330px;/* 임의로 수정. auto였음 */
+font-size:14px;
+word-break:keep-all; /* 임의로 추가 */
+text-align:center;
+}/* 마진 임의 변경 */
+/* weare 페이지 영역 끝 */
+
+/* work영역 시작 */
+.work-section {
+text-align:center;
+margin-top:30px;
+}
+.work-section li img {width:100%;}
+.work-section li a {/* 이 부분이 실제 a태그 영역 */
+/* a태그가 자리를 자리를 차지하지 않는 영역이고 이것을 블럭을 이용해서 자리를 차지하는 영역으로 변경. */
+display:block;
+width:100%;
+height:100%;
+position:relative;/* a태그의 위치를 상대위치로 지정 */
+}
+/* 마우스를 롤오버 했을 때 나오는 배경 색상 before 가상영역 (아래) */
+.work-section li a::before {
+display:block;
+background:#8ac7c5;
+ /* 이 절대값 위치는 a태그에서 지정한 relative 상대위치에 한정해서 절대위치 지정됨 (아래) */
+position:absolute;
+width:100%;
+height:100%;
+top:0px;/* 화면의 세로 위쪽으로 0px 위치 */
+left:0px;/* 화면의 가로로 0px 위치 */
+content:"";
+opacity:0; /* 투명도 */
+}
+.work-section li a:hover::before {
+opacity:0.5;
+}
+.work-section .info {
+display:block;/* 화면에서 자리를 차지하기 위해서 블럭지정 */
+position:absolute;
+left:20px;
+color:#fff;
+text-align:left;
+opacity:0;
+transition:all 0.3s;/* 화면전환 옵션 transform 모양변화에대한 화면전환옵션, width, height, 등등 all */
+}
+.work-section li a:hover .info {
+opacity:1;
+transform:translateY(20px);/* 모양이 변화할때 Y축으로 20px 이동*/
+}
+.info h2 {
+font-size:26px;
+font-weight:normal;
+}
+.info p {
+font-size:14px;
+padding:10px 0px;
+}
+
+/* work영역 끝 */
+/* blog 영역 시작 */
+.blog-section {
+margin-top:30px;
+}
+.blog-section h1 {
+text-align:center;
+font-size:42px;
+color:#333333; /* #3f51b5 였음 내가 임의로 변경 */
+font-weight:normal;
+/*font-family:Comic Sans MS;*/ /* 비활성화 */
+letter-spacing:5px;/* 글자사이 간격 내가 임의로 추가한 것 */
+}
+.blog-section .container {
+width:90%;
+margin:0 auto;
+}
+.blog-section li {
+margin-top:30px;
+}
+/* (위)현재 영역을 가운데 정렬할 때 사용. 좌우로 5%가 자동으로 잡힘. */
+.blog-section li img {
+width:100%;
+}
+.blog-section li time{
+display:block;
+margin:10px 0px;
+font-size:12px;
+color:#888;
+}
+.blog-section li h2{
+color:#424242;
+font-weight:normal;
+line-height:1.6;
+}
+/* reset.css 에서 hr태그를 display:none; 적용했기 때문에 블로그 영역에서만 block으로 하도록 바꿈.  */
+.blog-section hr {display:block; height:1px; background:#3f51b5;}/* 백그라운드 색상 변경 */
+/* blog 영역 끝 */
+
+/* contactus 영역 시작*/
+.contactus-section {
+margin-top:30px;
+}
+.contactus-section h1 {
+font-size:42px;
+text-align:center;
+/*font-family:Comic Sans MS;*/ /* 비활성화 */
+color:#333333;/* 원래 #3f51b5 였음 임의로 수정 */
+font-weight:normal;
+}
+.contactus-section .container {
+width:90%;
+margin:0px auto; /* 가운데정렬 */
+margin-top:30px;
+}
+.contactus-section label {
+display:none;/* 모바일에서는 숨기지만, 테블릿+PC에서는 보이게 처리 예정 */
+}
+.contactus-section form input {
+width:100%;
+line-height:1.2;
+padding:0 2px;
+height:40px;
+border:none;/* 테두리 없음 */
+border-bottom:1px solid #333333;/* 테두리 선 설정: 1px은 굵기, solid는 실선, #ccc는 선 색상. 임의로 굵기 및 선색상 수정. */
+background:transparent;/* 배경색상 투명 */
+}
+.contactus-section form textarea {
+width:100%;
+background:transparent;
+line-height:1.2;
+border:none;
+border-bottom:1px solid #333333;/* 임의로 굵기 및 선색상 수정. */
+min-height:100px;/* 최소높이를 지정하는 이유는 내용이 없더라고, 높이를 150px로 고정하는 의미  */
+padding-top:10px;
+padding-bottom:10px;
+}
+.contactus-section form button {
+padding:12px;/* 버튼을 여백 넓직하게 */
+font-size:16px;
+font-weight:bold;
+/*font-family:Comic Sans MS;*/ /* 비활성화 */
+background:none;
+color:#333333;/* 내가 임의로 추가한 것 */
+border:2px solid #333333;
+border-radius: 15px;/* 임의로 추가 버튼 테두리 둥글게 */
+input:focus;/* 임의로 추가 */ /* 클릭시 나오는 테두리 없애기 */
+outline:none;/* 임의로 추가 */ /* 클릭시 나오는 테두리 없애기 */
+}
+.submit-btn {
+text-align:center;/* div 영역 안쪽의 내용을 오른쪽 정렬.*/
+margin-top:10px;
+}
+/* contactus 영역 끝*/
+
+/* 모바일용 스타일 지정 끝 */

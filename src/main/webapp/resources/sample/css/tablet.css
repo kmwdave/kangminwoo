@@ -1,0 +1,114 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+/* 미디어쿼리: 미디어의 가로크기가 768px 이상이면 아래 스타일 적용 */
+@media all and (min-width:768px) {
+	
+/* 태블릿용 헤드 영역 시작 */
+.menu-toggle-btn {display:none;}
+.header .gnb {
+display:inline-block;
+position:static;/* absolute > static 으로 바꿈 */
+background:none;
+width:auto;
+float:right;/* 가로위치 오른쪽으로 조정 */
+margin-top:15px;
+}
+.header .gnb li {
+float:left;
+border:none;
+width:auto;/* 원래95px 내가 임의로 변경 */
+}
+.header .gnb li:last-child {border-bottom:none;margin-right:15px;}
+.header .gnb li a {
+display:inline-block;/* 콘텐츠 내용 크기만큼 자리를 차지하는 영역지정 */
+color:#333333;/* #3f51b5 였음. 내가 마음대로 변경. */
+font-size:18px;/*내가 마음대로 추가. */
+/*font-family:Comic Sans MS;*/ /* 비활성화 */
+padding:0 0;/*내가 마음대로 추가. */
+margin-left:25px;/*내가 마음대로 추가. */
+margin-top:10px;/*내가 마음대로 추가. */
+}
+.header .gnb li a:hover {text-decoration:none;}
+/* 태블릿용 헤드 영역 끝 */
+/* 슬라이드 영역 시작 */
+.carousel-item, .carousel-item img {height:500px;}
+/* 슬라이드 영역 끝 */
+
+/* weare 영역 시작 */
+.float-clear {clear:both;}/* clear속성은 float작용을 없애는 역할. */
+.weare-body li {
+float:left;/* 세로정렬을 가로정렬로 변경 부트스트랩의 그리드시스템 col-12(100%), col-3, col-3, col-3, col-3 */
+width:23.046875%;/* 177px / 768px * 100 = 23.046875  */
+margin-left:2.604166%;/* 20px / 768px * 100 = 2.6041666666...*/
+overflow:hidden;/* 반응형 list박스에서 가로크기를 벗어나는 이미지 내용은 숨김처리. */
+}
+.weare-body li h2 {font-size:2vw;font-weight:bold;}/* 임의로 추가 */
+.weare-body li img {width:100%;height:auto;}
+.weare-body li p {/* 임의로 추가 */
+font-size:1.5vw;/* 임의로 추가 */
+text-align:justify;/* 임의로 추가 */
+word-break:keep-all; /* 임의로 추가 */
+font-weight:normal;/* 임의로 추가 */
+margin:0 0px !important;/* 임의로 추가 */
+width:auto !important;/* 임의로 추가 */
+}
+.weare-body {margin:10px 3%;}/* 10px은 상하 3%는 좌우 여백 */
+.weare-body li:first-child {
+margin-left:0;
+}
+/* weare 영역 끝 */
+
+/* work 영역 시작 */
+.work-section li {
+float:left;
+width:50%;
+max-height:300px;/* 높이가 들쑥 날쑥하면 이빨빠지는 부분이 생겨서 최고높 설정. */
+overflow:hidden;/* 넘치는 부분 숨김 */
+}
+/* work 영역 끝 */
+
+/* 블로그 영역 시작 */
+.blog-section li {
+float:left;/* 세로배치가 가로배치로 변함 */
+width:31.59722222222%;/* 컨텐츠 3개중 1개의 가로 크기 (242/768)*100=? */
+margin-left:2.6041666666667%;/* 컨텐츠 1개의 여백(20/768)*100=? */
+height:300px;/* 원래300px 임의로 수정 */
+border:1px solid #ccc;
+}
+.blog-section li .preview {
+height:200px;
+overflow:hidden;
+/*border:1px solid red;*/ /* 이미지 영역 확인용. */
+/*min-height:200px;*/ /* 이미지 최소 높이를 지정 */
+/*max-height:200px;*/ /* 이미지 최대 높이를 지정 */
+}
+.blog-section li .info2 {
+padding:10px;
+}
+.blog-section li:first-child {/* 마지막 li가 아래로 떨어지는 것을 방지. */
+margin-left:0px;
+}
+.blog-section li:nth-child(3n+1) {/* 1,4,7,10,13.....위치에 해당하는 것만 적용 */
+margin-left:0px;
+}
+.blog-section hr {display:none;}
+/* 블로그 영역 끝 */
+
+/* 컨택트 영역 시작 */
+.input-class, .textarea-class {
+float:left;/*세로배치를 가로배치로 변경*/
+width:49%;/*2개로나누는 가로크기를 49% 지정*/
+}
+.input-class {
+margin-right:2%;
+}
+.contactus-section form textarea {
+min-height: 120px;
+}
+.submit-btn {
+text-align:right;/* div 영역 안쪽의 내용을 오른쪽 정렬.*/
+margin-top:10px;
+}
+/* 컨택트 영역 끝 */
+
+}

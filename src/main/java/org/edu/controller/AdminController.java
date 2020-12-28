@@ -48,7 +48,7 @@ public class AdminController {
 		return "redirect:/admin/board/board_list";
 	}
 	@RequestMapping(value="/admin/board/board_view", method=RequestMethod.GET)
-	public String board_view(@ModelAttribute("PageVO") PageVO pageVO, @RequestParam("bno") Integer bno, Model model) throws Exception {
+	public String board_view(@ModelAttribute("pageVO") PageVO pageVO, @RequestParam("bno") Integer bno, Model model) throws Exception {
 		//jsp로 보낼 더미 데이터 boardVO에 담아서 보낸다.
 		//실제로는 아래처럼 더미데이터를 만드것이 아닌
 		//쿼리스트링(질의문자열)로 받아온 bno(게시물 고유번호)를 이용해서 DB에서
@@ -64,13 +64,35 @@ public class AdminController {
 		 * boardVO.setReply_count(0);
 		 */
 		BoardVO boardVO = boardService.readBoard(bno);
+		// 시큐어 코딩 추가 시작
 		String xss_data = boardVO.getContent();
 		boardVO.setContent(securityCode.unscript(xss_data));
+		// 시큐어 코딩 추가 끝
+		// 첨부파일 리스트 값을 가져와서 세로데이터(jsp에서는 foEach문 사용)를 가로데이터(jsp에서 배열로 사용)로 바꾸기
+		// 첨부파일을 1개만 올릴예정이기 때문에 리스트형 데이터를 배열 데이터로 변경.
+		// 세로데이터 예시 (아래)
+		// [
+		// {'save_file_name1'},
+		// {'save_file_name2'},
+		// ...
+		// ]
+		List<String> files = boardService.readAttach(bno);
+		String[] save_file_names = new String[files.size()];
+		int cnt = 0;
+		for(String save_file_name:files) { // 세로데이터를 가로데이터로 변경하는 로직.
+			save_file_names[cnt] = save_file_name;
+					cnt = cnt + 1;
+		}
+		// 배열형 출력값(가로) {'save_file_name0', 'save_file_name1'......}
+		boardVO.setSave_file_names(save_file_names);
+		// 위처럼 첨부파일을 세로배치 > 가로배치로 바꾸고, get/set하는 이유는 attachVO를 만들지 않아서
+		// 위처럼 세로배치 > 가로배치로 바꾸는 것이 이상하면 아래처럼 처리.
+		// model.addAttribute("save_file_names", files);
 		model.addAttribute("boardVO", boardVO);
 		return "admin/board/board_view";
 	}
 	@RequestMapping(value="/admin/board/board_list",method=RequestMethod.GET)
-	public String board_list(@ModelAttribute("PageVO") PageVO pageVO, Model model) throws Exception {
+	public String board_list(@ModelAttribute("pageVO") PageVO pageVO, Model model) throws Exception {
 		//테스트용 더미 게시판 데이터 만들기(아래)
 		/*
 		 * BoardVO input_board = new BoardVO(); input_board.setBno(1);

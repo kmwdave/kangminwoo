@@ -27,4 +27,17 @@ public class BoardServiceImpl implements IF_BoardService{
 		return boardDAO.countBoard(pageVO);
 	}
 
+	@Override
+	public BoardVO readBoard(Integer bno) throws Exception {
+		// bno번호에 해당하는 게시물 조회하는 쿼리 DAO연결 + 해당 게시물 조회수 업데이트 (아래)
+		boardDAO.updateViewCount(bno);
+		return boardDAO.readBoard(bno);
+	}
+
+	@Override
+	public List<String> readAttach(Integer bno) throws Exception {
+		// bno번호에 해당하는 게시물 첨부파일 조회쿼리 DAO연결 (아래)
+		return boardDAO.readAttach(bno);
+	}
+
 }

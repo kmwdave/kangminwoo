@@ -18,6 +18,11 @@
 	</if>
 </sql>
 
+<select id="insertBoard">
+insert into tbl_board (title, content, writer, reg_date)
+values(#{title}, #{content}, #{writer}, now())
+</select>
+
 <select id="readAttach" resultType="String">
 select save_file_name from tbl_attach where bno = #{bno}
 order by reg_date desc

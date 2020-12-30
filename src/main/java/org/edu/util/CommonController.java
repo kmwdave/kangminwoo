@@ -29,7 +29,12 @@ public class CommonController {
 	@Inject
 	IF_MemberService memberService;
 	
-	// 첨부파일의 확장자를 비교해서 이미지인지 일반파일인지 등등 확인하는 리스트변수
+	// 첨부파일의 확장자를 비교해서 이미지인지 일반파일인지 등등 확인하는 리스트변수.
+	// 사용 용도: 게시물 상세보기, 첨부파일이 이미지라면 미리보기가 되도록, 아니면 다운로드 링크만 보이도록.
+	// 사용 용도: 메인 페이지 최근 갤러리 게시물에서 첨부파일이 있으면 미리보기 이미지가 나옴. 
+	// 만약 첨부파일이 이미지가 아니면 대체 이미지로 미리보기를 위해서 확장자 체크가 필요.
+	// 변수 생성 후 바로 리스트3개 입력처리.
+	@SuppressWarnings("serial")
 	private ArrayList<String> extNameArray = new ArrayList<String>() {
 		{
 			add("jpeg");
@@ -52,18 +57,18 @@ public class CommonController {
 	}
 	
 	// 파일 업로드 - xml에서 지정한 폴더에 실제파일 저장을 구현한 메서드 (아래)
-	public String fileUpload(MultipartFile file) throws IOException {
+	public String[] fileUpload(MultipartFile file) throws IOException {
 		String realFileName = file.getOriginalFilename(); // jsp에서 전송한 파일명
 		// 폴더에 저장할 PK용 파일명 만들기 (아래)
 		UUID uid = UUID.randomUUID(); // 유니크 아이디 생성 Unique ID: 폴더에 저장할 파일명으로 사용.
 		String saveFileName = uid.toString() + "." + realFileName.split("\\.");
 		// 값.split("정규표현식"); (Regular Expression):realFileName을 .으로 분할해서 배열 변수로 만드는 메서드.
 		// 예를 들면, abc.jpg > realFileName[0] = abc, realFileName[1] = jpg 으로 결과가 나옴.		
-		// String[] files = new String[] {saveFileName}; // saveFileName 스트링형을 배열변수 files로 형변환.
+		String[] files = new String[] {saveFileName}; // saveFileName 스트링형을 배열변수 files로 형변환.
 		byte[] fileData = file.getBytes(); // jsp폼에서 전송된 파일이 fileData변수(메모리)에 저장됨.
 		File target = new File(uploadPath, saveFileName); // 파일 저장하기 바로전 설정저장.
 		FileCopyUtils.copy(fileData, target); // 실제로 target폴더에 파일로 저장되는 메서드.
-		return saveFileName; // 첨부파일이 1개 이상일 수 있기때문에 .(BoardVO save_file_names멤버 변수가 배열형이기 때문에.)
+		return files; // 첨부파일이 1개 이상일 수 있기때문에 .(BoardVO save_file_names멤버 변수가 배열형이기 때문에.)
 	}
 	
 	

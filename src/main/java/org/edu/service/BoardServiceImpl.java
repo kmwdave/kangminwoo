@@ -42,7 +42,8 @@ public class BoardServiceImpl implements IF_BoardService{
 		// bno번호에 해당하는 게시물 첨부파일 조회쿼리 DAO연결 (아래)
 		return boardDAO.readAttach(bno);
 	}
-
+	
+	@Transactional
 	@Override
 	public void insertBoard(BoardVO boardVO) throws Exception {
 		// 게시물 등록 DAO연결 (아래)

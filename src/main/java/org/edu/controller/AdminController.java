@@ -37,12 +37,28 @@ public class AdminController {
 	@Inject
 	IF_BoardService boardService;//보드인터페이스를 주입받아서 boardService오브젝트 변수를 생성.
 	
+	@RequestMapping(value="/admin/board/board_update",method=RequestMethod.GET)
+	public String board_update(@RequestParam("bno") Integer bno, @ModelAttribute("pageVO") PageVO pageVO, Model model) throws Exception {
+		BoardVO boardVO = boardService.readBoard(bno);
+		model.addAttribute("boardVO", boardVO);
+		return "admin/board/board_update"; // 파일경로
+	}
+	
+	@RequestMapping(value="/admin/board/board_update",method=RequestMethod.POST)
+	public String board_update(RedirectAttributes rdat, MultipartFile file, BoardVO boardVO, PageVO pageVO) throws Exception {
+		boardService.updateBoard(boardVO);
+		// 첨부파일 미처리 추가예정. 수정할때 부모부터 수정 후 자식이 수정됨.
+		rdat.addFlashAttribute("msg", "수정");
+		return "redirect:/admin/board/board_view?page="+pageVO.getPage()+"&bno="+boardVO.getBno();
+	}
+	
 	// GET은 url 전송방식(아무데서나 브라우저 주소에 적으면 작동), POST는 폼 전송방식(해당 페이지에서만 작동가능).
-	@RequestMapping(value="/admin.board/board_delete",method=RequestMethod.POST)
+	@RequestMapping(value="/admin/board/board_delete",method=RequestMethod.POST)
 	public String board_delete(RedirectAttributes rdat, PageVO pageVO, @RequestParam("bno") Integer bno) throws Exception {
+		// 첨부파일 삭제 미처리 추가예정. 삭제시 자식부터 삭제 후 부모가 지워짐.
 		boardService.deleteBoard(bno);
 		rdat.addFlashAttribute("msg", "삭제");
-		return "redirect:/admin/board/board_list?page" + pageVO.getPage();// 삭제할 당시의 현재 페이지를 가져가서 리스트로 보여줌.
+		return "redirect:/admin/board/board_list?page=" + pageVO.getPage();// 삭제할 당시의 현재 페이지를 가져가서 리스트로 보여줌.
 	}
 	@RequestMapping(value="/admin/board/board_write",method=RequestMethod.GET)//URL경로
 	public String board_write() throws Exception {
@@ -52,7 +68,14 @@ public class AdminController {
 	public String board_write(RedirectAttributes rdat,MultipartFile file, BoardVO boardVO) throws Exception {
 		//post받은 boardVO내용을 DB서비스에 입력하면 됩니다.
 		//dB에 입력후 새로고침명령으로 게시물 테러를 당하지 않으려면, redirect로 이동처리 합니다.(아래)
+		// 첨부파일이 없으면 게시판만 저장. 그렇지 않으면 첨부파일 업로드 처리 후 게시판DB저장+첨부파일DB저장.
+		if(file.getOriginalFilename() == "") {// 첨부파일명이 공백이면 
+			
+		}else {// 첨부파일명이 공백이 아니면
+
+		}
 		boardService.insertBoard(boardVO);
+		
 		rdat.addFlashAttribute("msg", "저장");
 		return "redirect:/admin/board/board_list";
 	}

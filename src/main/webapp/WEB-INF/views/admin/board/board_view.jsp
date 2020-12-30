@@ -255,7 +255,7 @@ $(document).ready(function() {
   </div>
 </div>
 
-<form name="action_form"> <!-- 이 내용이 서브밋 됨 -->
+<form name="action_form">
 	<input type="hidden" name="bno" value="${boardVO.bno}">
 	<input type="hidden" name="page" value="${pageVO.page}">
 </form>
@@ -263,9 +263,11 @@ $(document).ready(function() {
 	$(document).ready(function(){
 		$("#btn_board_delete").on("click",function(){
 			// alert("디버그");
-			$("form[name='action_form']").attr("method","post");
-			$("form[name='action_form']").attr("action","/admin/board/board_delete");
-			$("form[name='action_form']").submit();
+			if(confirm("정말로 삭제하시겠습니까?")) {
+				$('form[name="action_form"]').attr("method","post");
+				$('form[name="action_form"]').attr("action","/admin/board/board_delete");
+				$('form[name="action_form"]').submit();
+			}
 		});
 	});
 </script>
